@@ -1,19 +1,31 @@
-Django E-Commerce Project.
+ Django E-Commerce Project
 
-It is a Django-based e-commerce project that allows users to browse products, manage a shopping cart, and proceed through a order page and its dispalys the status of the order.
+![GitHub repo size](https://img.shields.io/github/repo-size/Sanintk007/projectdj)
+![GitHub language count](https://img.shields.io/github/languages/count/Sanintk007/projectdj)
+![GitHub top language](https://img.shields.io/github/languages/top/Sanintk007/projectdj)
+![GitHub last commit](https://img.shields.io/github/last-commit/Sanintk007/projectdj)
 
-Features:
+It is a Django-based e-commerce project that allows users to browse products, manage a shopping cart, and simulate a checkout process. 
+---
 
-User Cart Management: Add, remove, and view products in the shopping cart.
+## 🚀 Features
 
-Order Summary: Subtotal, tax, and total calculation.
+- **User Cart Management:** Add, remove, and view products in the shopping cart.  
+- **Order Summary:** Subtotal, tax, and total calculation.  
+- **Product Management:** Admin can add and manage products.  
 
-Product Management: Admin can add and manage products.
 
-Tech Stack:
+## 🛠️ Tech Stack
 
-Backend: Django (Python)
+- **Backend:** Django (Python)  
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap  
+- **Database:** SQLite  
 
-Frontend: HTML, CSS, JavaScript, Bootstrap
+---
 
-Database: SQLite (default for Django)
+## ⚡ Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Sanintk007/projectdj.git
+cd brocart
