@@ -1,0 +1,96 @@
+{% load static %}
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+
+            <!-- Left Side Image -->
+            <div class="col-2">
+                <img src="{% static 'images/image1.png' %}" width="100%">
+            </div>
+
+            <!-- Right Side Content -->
+            <div class="col-2">
+
+                <!-- Popup Messages -->
+                {% if messages %}
+                <div id="popup" class="popup {% for message in messages %}{{ message.tags }}{% endfor %}">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- Login/Register Forms -->
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="LoginForm" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit" name="login" class="btn">Login</button>
+                        <a href="">Forget Password</a>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="RegForm" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" name="username" maxlength="10" minlength="3" required placeholder="Username">
+                        <input type="email" name="email" required placeholder="Email">
+                        <input type="password" name="password" minlength="4" required placeholder="Password">
+                        <input type="text" name="address" minlength="5" required placeholder="Address">
+                        <input type="text" name="phone" minlength="5" required placeholder="Phone">
+                        <button type="submit" name="register" class="btn">Register</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+   .form-container {
+        min-height: 500px;
+    }
+    .popup {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4caf50;   /* green success background */
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: fadeIn 0.5s ease;
+    }
+    /* Success = Green */
+    .popup.success {
+    background: #4caf50;
+    }
+
+   /* Error = Red */
+   .popup.error {
+    background: #f44336;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+        const popup = document.getElementById("popup");
+        if (popup) popup.style.display = "none";
+    }, 3000);
+</script>

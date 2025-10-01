@@ -1,0 +1,14 @@
+{% extends 'blank_layout.html' %}
+
+{% block banner %}
+{% endblock banner %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <li class="{{ message.tag }}">{{ message }}</li>
+        {% endfor %}
+    {% else %}
+        {% include 'order_container.html' %}
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% load getstatus %}
+<div class="small-container cart-page">
+        {% if orders %}
+        <table>
+            <tbody><tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Total Price</th>
+                <th>Status</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+               <td>{{order.id}}</td>
+               <td>{{order.created_at}}</td>
+               <td>{{order.total_price}}</td>
+               <td>{% getstatus order.order_status %}</td>
+            </tr>
+            {% endfor %}
+        
+           
+        </tbody>
+</table>
+{% else %}
+<p>No Orders</P>
+{% endif %}
+<style>
+/* Container */
+.small-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table */
+.cart-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Header */
+.cart-page th {
+    background: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Table Rows */
+.cart-page td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+/* Zebra Striping */
+.cart-page tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+.cart-page tr:hover {
+    background-color: #f1f7f4;
+    transition: 0.3s;
+}
+
+/* Status Styling */
+.cart-page td:last-child {
+    font-weight: bold;
+}
+.cart-page td:last-child:contains("Confirmed") {
+    color: green;
+}
+.cart-page td:last-child:contains("Processed") {
+    color: orange;
+}
+.cart-page td:last-child:contains("Delivered") {
+    color: blue;
+}
+.cart-page td:last-child:contains("Rejected") {
+    color: red;
+}
+</style>
+</div>
